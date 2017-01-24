@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_use!
+  before_action :authenticate_user!
   def index
     @products = Product.all
   end
@@ -42,9 +42,9 @@ class Admin::ProductsController < ApplicationController
     redirect_to admin_products_path
     flash[:notice] = "delete"
   end
-  
+
 private
-  def group_params
-    params.require(:group).permit(:title, :description, :quantity, :price)
+  def product_params
+    params.require(:product).permit(:title, :description, :quantity, :price)
   end
 end
