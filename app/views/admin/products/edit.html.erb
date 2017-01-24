@@ -15,7 +15,7 @@
     <%= f.input :price %>
   </div>
 
-  <% if @product.image.presence?  %>
+  <% if @product.image.present?  %>
   <span>目前的商品图</span>
   <hr>
   <%= image_tag(@product.image.thumb.url) %>
